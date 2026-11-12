@@ -6,11 +6,11 @@ FaceWinUnlock 的水墨风单页宣传站。FaceWinUnlock 是一款把面容识�
 
 ## 预览
 
-页面为纯静态 HTML，无构建步骤。直接双击 `FaceWinUnlock.html`，或起一个本地服务：
+页面为纯静态 HTML，入口文件为 `index.html`，无构建步骤。直接双击 `index.html`，或起一个本地服务：
 
 ```powershell
 python -m http.server 8080
-# 打开 http://localhost:8080/FaceWinUnlock.html
+# 打开 http://localhost:8080/
 ```
 
 ## 页面结构
