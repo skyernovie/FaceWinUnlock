@@ -373,15 +373,6 @@ section{position:relative;z-index:2}
   writing-mode:horizontal-tb;
 }
 
-/* ---------- 墨水点跟随 ---------- */
-.cursor-ink{
-  position:fixed;left:0;top:0;width:26px;height:26px;border-radius:50%;z-index:80;
-  background:radial-gradient(circle at 40% 36%,rgba(23,18,13,.55),rgba(23,18,13,.12) 60%,transparent 72%);
-  filter:blur(6px);pointer-events:none;opacity:0;
-  will-change:transform;
-}
-@media (pointer:coarse){.cursor-ink{display:none}}
-
 /* ---------- 入场准备：默认全部可见，JS 只负责「从无到有」 ---------- */
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
@@ -393,7 +384,6 @@ section{position:relative;z-index:2}
 <div class="scroll-ink" id="scroll-ink"></div>
 <div class="ink-wipe" id="ink-wipe"></div>
 <div class="wipe-logo" id="wipe-logo"><span>FACE</span></div>
-<div class="cursor-ink" id="cursor-ink"></div>
 
 <div class="ink-field" aria-hidden="true">
   <div class="blot blot--a"></div>
@@ -769,21 +759,6 @@ section{position:relative;z-index:2}
       onUpdate: function () { n.textContent = Math.round(obj.v); }
     });
   });
-
-  /* ---------- 墨滴光标 ---------- */
-  var cur = document.getElementById('cursor-ink');
-  if (cur && window.matchMedia('(pointer: fine)').matches) {
-    var xTo = gsap.quickTo(cur, 'x', { duration: .5, ease: 'power3' });
-    var yTo = gsap.quickTo(cur, 'y', { duration: .5, ease: 'power3' });
-    window.addEventListener('mousemove', function (e) {
-      gsap.to(cur, { opacity: 1, duration: .3 });
-      xTo(e.clientX - 13);
-      yTo(e.clientY - 13);
-    }, { passive: true });
-    window.addEventListener('mouseleave', function () {
-      gsap.to(cur, { opacity: 0, duration: .3 });
-    });
-  }
 
   /* ---------- 墨滴切换：点击导航 → 墨团吞屏 → 落点 ---------- */
   var wipe = document.getElementById('ink-wipe');
