@@ -3,37 +3,27 @@
 FaceWinUnlock 的水墨风单页宣传站。FaceWinUnlock 是一款把面容识别接进 Windows 锁屏的工具：凭据由 WinLogon 直接校验，识别全程在本地完成，人脸数据不出本机。
 
 本仓库只包含这一个静态宣传页面，不包含客户端源码。
+## 本次更新（相对旧版 `site_旧/ink.html`）
 
-## 预览
-
-页面为纯静态 HTML，入口文件为 `index.html`，无构建步骤。直接双击 `index.html`，或起一个本地服务：
-
-```powershell
-python -m http.server 8080
-# 打开 http://localhost:8080/
-```
-
-## 页面结构
-
-| 区块 | id | 内容 |
-| --- | --- | --- |
-| 首屏 | — | 主标题「抬头，即开。」、简介与下载入口 |
-| 壹 · 缘起 | `idea` | 项目由来，钉住式段落过渡 |
-| 贰 · 功能 | `features` | 四张功能卡片，横向滚动轨道 |
-| 叁 · 数据 | `stats` | 延迟 / 上传量 / 本地推理占比等数字滚动 |
-| 肆 · 下载 | `download` | Releases、蓝奏云镜像与相关链接 |
+- **站点图标**：favicon 由红色方框印章改为 Tauri 官方标志，仍为内联 SVG，不新增外部文件。
+- **首屏社交入口**：移除旧版右下的 `WINDOWS 10 / 11 · x64 · v0.4.0` 版本行与「墨锁」竖排印章；新增印章式平台入口（抖音 / 哔哩哔哩 / GitHub），hover 反色上浮、按下缩放，图标列与竖排说明「作者各大平台主页」整体垂直居中。
+- **首屏主按钮**：「获取 Setup 安装包」不再跳转 GitHub Releases，改为页内跳转 `#download`，复用导航的墨滴切换过渡。
+- **下载区按钮**：主按钮改为金色胶囊样式，hover 时圆形金色背景扩散填满按钮、文字转深色，配合轻微缩放与金色光晕；「国内下载」共用同一套扩散动效并统一胶囊圆角。
+- **下载区文案**：不再标注网盘厂商，「国内下载 · 蓝奏云」改为「国内下载（密码 5969）」，并删除原独立的密码提示行。
+- **动效脚本**：首屏入场时间线移除已删除元素的淡入，避免空选择器。
 
 ## 技术说明
 
 - 单文件 HTML + 内联 CSS，样式变量集中在 `:root`（纸 `#f3ede3` / 墨 `#17120d` / 朱砂 `#b23b2c`）。
-- 动效依赖仓库内置的 [GSAP](https://gsap.com/) 与 ScrollTrigger（`vendor/` 目录），不依赖 CDN。
-- 系统开启「减少动态效果」时自动降级：跳过字符拆分与滚动动画，内容直接可见。
-- 响应式布局，移动端隐藏竖排装饰文字与部分导航项。
+- 动效依赖仓库内置的 GSAP 与 ScrollTrigger（`vendor/` 目录），不依赖 CDN；字体为 Noto Serif SC / Noto Sans SC。
+- 系统开启「减少动态效果」时自动降级：跳过字符拆分与滚动动画，内容直接可见；GSAP 未加载时同样兜底。
+- 响应式布局，移动端隐藏竖排说明文字与部分导航项，平台入口由竖排切为横排。
 
 ## 相关链接
 
-- 产品仓库：https://github.com/zs1083339604/FaceWinUnlock-Tauri
-- 下载发行版：https://github.com/zs1083339604/FaceWinUnlock-Tauri/releases
+- 产品仓库：`https://github.com/zs1083339604/FaceWinUnlock-Tauri`
+- 下载发行版：`https://github.com/zs1083339604/FaceWinUnlock-Tauri/releases`
+- 国内下载：`https://wwbqv.lanzoul.com/b019vlktwf`（密码 5969）
 
 ## 说明
 
