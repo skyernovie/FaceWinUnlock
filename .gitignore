@@ -1,5 +1,6 @@
 # 本地临时文件
 .screenshots/
+.trae-html-share-packages/
 .DS_Store
 Thumbs.db
 
