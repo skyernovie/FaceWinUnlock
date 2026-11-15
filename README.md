@@ -8,12 +8,13 @@ FaceWinUnlock 的静态宣传站，水墨风格，支持日间 / 夜间双主题
 
 ```
 FaceWinUnlock/
-├── index.html              # 首页
-├── download.html           # 国内下载页（四个镜像、提取码复制）
-├── changelog.html          # 历史版本页（Release 记录 + 贡献者头像组）
+├── index.html              # 首页（唯一放在根目录的页面）
 ├── CNAME                   # GitHub Pages 自定义域名
 ├── README.md
 ├── .gitignore
+├── pages/
+│   ├── download.html       # 国内下载页（四个镜像、提取码复制）
+│   └── changelog.html      # 历史版本页（Release 记录 + 贡献者头像组）
 └── assets/
     ├── css/
     │   ├── base.css        # 共用变量、重置、纸纹背景与夜间主题
@@ -38,8 +39,8 @@ FaceWinUnlock/
 | | `#features` | 系统级凭据注入、本地 2D DNN 识别、活体检测、全程离线，横向卡片轨道 |
 | | `#stats` | 识别延迟、上传量、本地推理占比等数字滚动 |
 | | `#download` | Releases、国内下载、历史版本、Beta 版、问题反馈与交流群入口 |
-| `download.html` | — | 镜像站、蓝奏云、百度网盘、天翼云四张扇形卡片，提取码可一键复制 |
-| `changelog.html` | — | 0.3.4 – 0.4.1 六个版本的更新要点，每行右下角为贡献者头像组 |
+| `pages/download.html` | — | 镜像站、蓝奏云、百度网盘、天翼云四张扇形卡片，提取码可一键复制 |
+| `pages/changelog.html` | — | 0.3.4 – 0.4.1 六个版本的更新要点，每行右下角为贡献者头像组 |
 
 页内指向 GitHub、网盘、QQ 群的外链仍需联网才能打开。
 

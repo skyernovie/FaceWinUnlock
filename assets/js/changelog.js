@@ -204,7 +204,7 @@
         a.tabIndex = -1;
 
         var img = document.createElement('img');
-        img.src = './assets/avatars/' + p.login + '.png';
+        img.src = '../assets/avatars/' + p.login + '.png';
         img.alt = '';
         img.loading = 'lazy';
         img.width = 42;
