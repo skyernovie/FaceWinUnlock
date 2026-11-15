@@ -26,7 +26,7 @@ FaceWinUnlock/
     │   ├── download.js     # 下载页主题切换、镜像卡片
     │   ├── changelog.js    # 版本页主题切换、筛选
     │   └── vendor/         # GSAP 3.12.5 + ScrollTrigger
-    ├── fonts/              # Noto Serif SC / Noto Sans SC（按用字裁剪）
+    ├── fonts/              # Noto Serif SC / Noto Sans SC（仅首页使用，按用字裁剪）
     └── avatars/            # 贡献者头像
 ```
 

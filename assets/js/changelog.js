@@ -30,7 +30,7 @@
   /* ---------- ASCII 渐变背景（与首页同参） ---------- */
   var COLORS = ['#1e3fd8', '#f6f8ff', '#a5d8ff', '#38bdf8'];
   var CHARS = ' =+xX0S8#@';
-  var CELL = 18, DENSITY = 0.8, GLYPH = 0.85, FLICKER = 0.2;
+  var CELL = 22, DENSITY = 0.72, GLYPH = 0.85, FLICKER = 0.2;
   var SOFT = 0.5, FLOW = 0.5, SPEED = 1, GRAIN = 0.08, SCRAMBLE = 0.1;
   var ctx = canvas.getContext('2d');
   var stops = COLORS.map(function (hex) {
@@ -69,7 +69,7 @@
     return v - Math.floor(v);
   }
   function resize() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     w = canvas.clientWidth || window.innerWidth;
     h = canvas.clientHeight || window.innerHeight;
     canvas.width = Math.round(w * dpr);
@@ -150,7 +150,7 @@
   function frame(now) {
     if (!running) return;
     rafId = requestAnimationFrame(frame);
-    if (now - lastFrame < 32) return;
+    if (now - lastFrame < 50) return;
     lastFrame = now;
     for (var i = waves.length - 1; i >= 0; i--) {
       if (now - waves[i].born > 2600) waves.splice(i, 1);
