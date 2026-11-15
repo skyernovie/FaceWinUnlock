@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>历史版本 · FaceWinUnlock</title>
+<meta name="description" content="FaceWinUnlock 历史版本记录：从 0.3.4 到当前版本的每次功能更新、优化与修复。" />
+<meta name="theme-color" content="#f3ede3" id="theme-color" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 206 231'%3E%3Cpath d='M143.143 84C143.143 96.1503 133.293 106 121.143 106C108.992 106 99.1426 96.1503 99.1426 84C99.1426 71.8497 108.992 62 121.143 62C133.293 62 143.143 71.8497 143.143 84Z' fill='%23FFC131'/%3E%3Cellipse cx='84.1426' cy='147' rx='22' ry='22' fill='%2324C8DB'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M166.738 154.548C157.86 160.286 148.023 164.269 137.757 166.341C139.858 160.282 141 153.774 141 147C141 144.543 140.85 142.121 140.558 139.743C144.975 138.204 149.215 136.139 153.183 133.575C162.73 127.404 170.292 118.608 174.961 108.244C179.63 97.8797 181.207 86.3876 179.502 75.1487C177.798 63.9098 172.884 53.4021 165.352 44.8883C157.82 36.3744 147.99 30.2165 137.042 27.1546C126.095 24.0926 114.496 24.2568 103.64 27.6274C92.7839 30.998 83.1319 37.4317 75.8437 46.1553C74.9102 47.2727 74.0206 48.4216 73.176 49.5993C61.9292 50.8488 51.0363 54.0318 40.9629 58.9556C44.2417 48.4586 49.5653 38.6591 56.679 30.1442C67.0505 17.7298 80.7861 8.57426 96.2354 3.77762C111.685 -1.01901 128.19 -1.25267 143.769 3.10474C159.348 7.46215 173.337 16.2252 184.056 28.3411C194.775 40.457 201.767 55.4101 204.193 71.404C206.619 87.3978 204.374 103.752 197.73 118.501C191.086 133.25 180.324 145.767 166.738 154.548ZM41.9631 74.275L62.5557 76.8042C63.0459 72.813 63.9401 68.9018 65.2138 65.1274C57.0465 67.0016 49.2088 70.087 41.9631 74.275Z' fill='%23FFC131'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M38.4045 76.4519C47.3493 70.6709 57.2677 66.6712 67.6171 64.6132C65.2774 70.9669 64 77.8343 64 85.0001C64 87.1434 64.1143 89.26 64.3371 91.3442C60.0093 92.8732 55.8533 94.9092 51.9599 97.4256C42.4128 103.596 34.8505 112.392 30.1816 122.756C25.5126 133.12 23.9357 144.612 25.6403 155.851C27.3449 167.09 32.2584 177.598 39.7906 186.112C47.3227 194.626 57.153 200.784 68.1003 203.846C79.0476 206.907 90.6462 206.743 101.502 203.373C112.359 200.002 122.011 193.568 129.299 184.845C130.237 183.722 131.131 182.567 131.979 181.383C143.235 180.114 154.132 176.91 164.205 171.962C160.929 182.49 155.596 192.319 148.464 200.856C138.092 213.27 124.357 222.426 108.907 227.222C93.458 232.019 76.9524 232.253 61.3736 227.895C45.7948 223.538 31.8055 214.775 21.0867 202.659C10.3679 190.543 3.37557 175.59 0.949823 159.596C-1.47592 143.602 0.768139 127.248 7.41237 112.499C14.0566 97.7497 24.8183 85.2327 38.4045 76.4519Z' fill='%2324C8DB'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="./assets/fonts/fonts.css" />
+<style>
+/* =========================================================
+   FaceWinUnlock — 历史版本（沿用首页的纸墨 / 夜间主题）
+   ========================================================= */
+:root{
+  --paper:#f3ede3;--paper-2:#e9e1d3;
+  --ink:#17120d;--ink-2:#2c2620;
+  --muted:#6f6557;--muted-2:#918777;
+  --seal:#b23b2c;--seal-deep:#8c2a1e;
+  --line:rgba(23,18,13,.14);--line-soft:rgba(23,18,13,.07);
+  --serif:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --ease:cubic-bezier(.22,.72,.24,1);
+}
+html[data-theme="dark"]{
+  --paper:#050a15;--paper-2:#081120;
+  --ink:#e9f0ff;--ink-2:#c8d5ec;
+  --muted:#93a3c0;--muted-2:#6d7e9a;
+  --seal:#e0604e;--seal-deep:#c04535;
+  --line:rgba(233,240,255,.16);--line-soft:rgba(233,240,255,.08);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:100svh;display:flex;flex-direction:column;overflow-x:hidden;
+  background:var(--paper);color:var(--ink);
+  font-family:var(--serif);font-weight:400;line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  transition:background-color .6s var(--ease),color .6s var(--ease);
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.38;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
+}
+html[data-theme="dark"] body::before{filter:invert(1);opacity:.16}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--ink);color:var(--paper)}
+
+/* 夜间 ASCII 背景 */
+.ascii-bg{
+  position:fixed;inset:0;width:100%;height:100%;z-index:0;
+  pointer-events:none;opacity:0;transition:opacity .9s var(--ease);
+}
+.ascii-bg.is-on{opacity:.62}
+
+/* 顶部 */
+.nav{
+  position:sticky;top:0;z-index:10;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:24px clamp(22px,4vw,56px);
+  background:rgba(243,237,227,0);
+  border-bottom:1px solid transparent;
+  backdrop-filter:blur(14px) saturate(1.06);
+  -webkit-backdrop-filter:blur(14px) saturate(1.06);
+  transition:background-color .45s var(--ease),border-color .45s var(--ease);
+}
+.nav.is-stuck{background:rgba(243,237,227,.82);border-bottom-color:var(--line-soft)}
+html[data-theme="dark"] .nav.is-stuck{background:rgba(5,10,21,.76)}
+.brand{display:flex;align-items:center;gap:13px;font-weight:600;font-size:19px;letter-spacing:.03em}
+.brand__mark{width:29px;height:33px;flex:none;display:block}
+.nav__right{display:flex;align-items:center;gap:clamp(14px,2vw,22px)}
+.back{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--sans);font-size:13.5px;letter-spacing:.04em;color:var(--muted);
+  transition:color .3s var(--ease);
+}
+.back::before{
+  content:"";display:inline-block;width:0;height:1px;background:currentColor;
+  transition:width .42s cubic-bezier(.25,.8,.25,1);
+}
+.back:hover{color:var(--ink)}
+.back:hover::before{width:2.6rem}
+.theme-toggle{
+  display:grid;place-items:center;padding:0;-webkit-appearance:none;appearance:none;
+  width:34px;height:34px;border:1px solid var(--line);border-radius:50%;
+  background:transparent;color:var(--muted);cursor:pointer;
+  transition:color .35s var(--ease),border-color .35s var(--ease),background-color .35s var(--ease);
+}
+.theme-toggle:hover{color:var(--ink);border-color:var(--ink)}
+.theme-toggle svg{
+  grid-area:1 / 1;width:17px;height:17px;
+  fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
+  transition:opacity .4s var(--ease),transform .55s var(--ease);
+}
+.theme-toggle__moon{opacity:0;transform:rotate(-40deg) scale(.55)}
+html[data-theme="dark"] .theme-toggle__sun{opacity:0;transform:rotate(70deg) scale(.55)}
+html[data-theme="dark"] .theme-toggle__moon{opacity:1;transform:none}
+.theme-toggle:focus-visible{outline:2px solid var(--seal);outline-offset:4px}
+
+/* 主体 */
+main{
+  position:relative;z-index:2;flex:1;
+  width:min(760px,calc(100% - clamp(32px,8vw,96px)));
+  margin:0 auto;padding:clamp(40px,8vh,96px) 0 clamp(60px,9vh,96px);
+}
+.kicker{font-family:var(--sans);font-size:11.5px;letter-spacing:.34em;color:var(--muted-2);text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.kicker::before{content:"";width:34px;height:1px;background:var(--ink);opacity:.5}
+h1{font-size:clamp(40px,7vw,76px);font-weight:600;line-height:1.1;letter-spacing:-.02em;margin-top:16px}
+h1 .dot{color:var(--seal);font-size:.5em;vertical-align:baseline}
+.rule{height:1px;background:var(--ink);opacity:.2;margin:clamp(20px,3vh,30px) 0}
+.lede{font-size:15px;line-height:2;color:var(--muted);font-weight:300;max-width:34em}
+.credit{
+  display:flex;align-items:center;gap:9px;margin-top:12px;
+  font-family:var(--sans);font-size:11.5px;letter-spacing:.05em;color:var(--muted-2);
+}
+.credit::before{content:"";width:16px;height:1px;background:var(--seal);opacity:.7}
+.credit a{color:var(--ink);border-bottom:1px solid var(--line)}
+
+/* 版本记录 */
+.timeline{margin-top:clamp(28px,5vh,52px)}
+.ver{padding:clamp(24px,4vh,38px) 0;border-top:1px solid var(--line-soft)}
+.ver:first-child{border-top:0;padding-top:0}
+.ver__head{display:flex;align-items:baseline;gap:clamp(12px,2vw,20px);flex-wrap:wrap}
+.ver__no{font-size:clamp(28px,4vw,38px);font-weight:600;line-height:1.1;letter-spacing:-.01em}
+.ver__date{font-family:var(--sans);font-size:12px;letter-spacing:.1em;color:var(--muted-2)}
+.ver__badge{
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;
+  color:#fbf6ee;background:var(--seal);border-radius:2px;padding:3px 8px;
+  align-self:center;
+}
+.ver__tag{
+  margin-left:auto;align-self:center;
+  font-family:var(--sans);font-size:11px;letter-spacing:.08em;color:var(--seal);
+  border:1px solid var(--line);border-radius:2px;padding:4px 9px;
+}
+.ver__list{margin-top:16px;display:grid;gap:9px}
+.ver__list li{
+  position:relative;padding-left:18px;
+  font-size:14px;line-height:1.9;font-weight:300;color:var(--ink-2);
+}
+.ver__list li::before{
+  content:"";position:absolute;left:2px;top:.86em;
+  width:6px;height:1px;background:var(--seal);opacity:.85;
+}
+.ver__list a{color:var(--ink);border-bottom:1px solid var(--line)}
+.ver__list a:hover{border-color:var(--ink)}
+.ver__list strong{font-weight:600;color:var(--ink)}
+
+/* 版本右下角：贡献者头像组 */
+.ver__foot{display:flex;justify-content:flex-end;margin-top:18px}
+.contrib{
+  --av:42px;--fan:40px;--step:calc(var(--av) / 3 + var(--fan));
+  --hold:40ms;--n:3;
+  position:relative;display:flex;align-items:center;
+  cursor:default;outline:none;user-select:none;-webkit-tap-highlight-color:transparent;
+}
+/* 展开时的透明热区：覆盖整排头像与下方名字 */
+.contrib.is-open::after{
+  content:"";position:absolute;
+  left:-4px;top:-8px;bottom:-24px;
+  right:calc(-1 * (var(--n) - 1) * var(--step) - 6px);
+}
+.contrib:empty{display:none}
+.cav{
+  position:relative;z-index:calc(var(--i) + 1);
+  display:block;width:var(--av);height:var(--av);
+  border:2px solid var(--paper);border-radius:50%;
+  background:var(--paper-2);
+  box-shadow:0 2px 10px -4px rgba(23,18,13,.4);
+  pointer-events:none;
+  transition:transform .46s var(--ease),box-shadow .32s var(--ease);
+  transition-delay:calc((var(--n) - 1 - var(--i)) * var(--hold));
+}
+.cav + .cav{margin-left:calc(var(--av) / -3)}
+.cav img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover}
+.cav__name{
+  position:absolute;top:calc(100% + 7px);left:50%;
+  font-family:var(--sans);font-size:9.5px;letter-spacing:0;line-height:1;color:var(--muted);
+  white-space:nowrap;pointer-events:none;
+  opacity:0;transform:translate(-50%,-4px);
+  transition:opacity .3s var(--ease),transform .3s var(--ease);
+  transition-delay:calc((var(--n) - 1 - var(--i)) * var(--hold));
+}
+.contrib.is-open{cursor:default}
+.contrib.is-open .cav{
+  pointer-events:auto;cursor:pointer;
+  transform:translateX(calc(var(--i) * var(--step)));
+  transition-delay:calc(var(--i) * var(--hold));
+}
+.contrib.is-open .cav:hover{
+  box-shadow:0 6px 16px -5px rgba(23,18,13,.5);
+  transition-delay:0ms;
+}
+.contrib.is-open .cav__name{
+  opacity:1;transform:translate(-50%,0);pointer-events:auto;cursor:pointer;
+  transition-delay:calc(var(--i) * var(--hold) + 80ms);
+}
+.cav--more{
+  display:grid;place-items:center;
+  font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.02em;
+  color:var(--seal);
+}
+.cav--more[hidden]{display:none}
+/* 被 +N 折叠的头像：展开后再出现 */
+.cav--extra{display:none}
+.contrib.is-open .cav--extra{
+  display:block;
+  animation:cav-fade .35s var(--ease) both;
+  animation-delay:calc(var(--i) * var(--hold));
+}
+.contrib.is-open .cav--more{display:none}
+@keyframes cav-fade{from{opacity:0}to{opacity:1}}
+.contrib:focus-visible{outline:2px solid var(--seal);outline-offset:8px;border-radius:999px}
+.cav:focus-visible{outline:2px solid var(--seal);outline-offset:3px}
+
+/* 页脚 */
+.foot{
+  position:relative;z-index:2;
+  padding:26px clamp(22px,4vw,56px) 34px;
+  border-top:1px solid var(--line-soft);
+  font-family:var(--sans);font-size:12px;color:var(--muted-2);
+}
+.foot .dot{color:var(--seal)}
+
+@media (max-width:1600px){
+  .ver__foot{justify-content:flex-start}
+}
+@media (max-width:640px){
+  .brand{font-size:16px;gap:10px}
+  .brand__mark{width:24px;height:27px}
+  .ver__tag{display:none}
+  .contrib{--av:36px;--fan:44px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.001s!important;animation-duration:.001s!important}
+}
+</style>
+</head>
+<body>
+
+<canvas class="ascii-bg" id="ascii-bg" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="FaceWinUnlock 首页">
+    <svg class="brand__mark" viewBox="0 0 206 231" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M143.143 84C143.143 96.1503 133.293 106 121.143 106C108.992 106 99.1426 96.1503 99.1426 84C99.1426 71.8497 108.992 62 121.143 62C133.293 62 143.143 71.8497 143.143 84Z" fill="#FFC131"/>
+      <ellipse cx="84.1426" cy="147" rx="22" ry="22" transform="rotate(180 84.1426 147)" fill="#24C8DB"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M166.738 154.548C157.86 160.286 148.023 164.269 137.757 166.341C139.858 160.282 141 153.774 141 147C141 144.543 140.85 142.121 140.558 139.743C144.975 138.204 149.215 136.139 153.183 133.575C162.73 127.404 170.292 118.608 174.961 108.244C179.63 97.8797 181.207 86.3876 179.502 75.1487C177.798 63.9098 172.884 53.4021 165.352 44.8883C157.82 36.3744 147.99 30.2165 137.042 27.1546C126.095 24.0926 114.496 24.2568 103.64 27.6274C92.7839 30.998 83.1319 37.4317 75.8437 46.1553C74.9102 47.2727 74.0206 48.4216 73.176 49.5993C61.9292 50.8488 51.0363 54.0318 40.9629 58.9556C44.2417 48.4586 49.5653 38.6591 56.679 30.1442C67.0505 17.7298 80.7861 8.57426 96.2354 3.77762C111.685 -1.01901 128.19 -1.25267 143.769 3.10474C159.348 7.46215 173.337 16.2252 184.056 28.3411C194.775 40.457 201.767 55.4101 204.193 71.404C206.619 87.3978 204.374 103.752 197.73 118.501C191.086 133.25 180.324 145.767 166.738 154.548ZM41.9631 74.275L62.5557 76.8042C63.0459 72.813 63.9401 68.9018 65.2138 65.1274C57.0465 67.0016 49.2088 70.087 41.9631 74.275Z" fill="#FFC131"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M38.4045 76.4519C47.3493 70.6709 57.2677 66.6712 67.6171 64.6132C65.2774 70.9669 64 77.8343 64 85.0001C64 87.1434 64.1143 89.26 64.3371 91.3442C60.0093 92.8732 55.8533 94.9092 51.9599 97.4256C42.4128 103.596 34.8505 112.392 30.1816 122.756C25.5126 133.12 23.9357 144.612 25.6403 155.851C27.3449 167.09 32.2584 177.598 39.7906 186.112C47.3227 194.626 57.153 200.784 68.1003 203.846C79.0476 206.907 90.6462 206.743 101.502 203.373C112.359 200.002 122.011 193.568 129.299 184.845C130.237 183.722 131.131 182.567 131.979 181.383C143.235 180.114 154.132 176.91 164.205 171.962C160.929 182.49 155.596 192.319 148.464 200.856C138.092 213.27 124.357 222.426 108.907 227.222C93.458 232.019 76.9524 232.253 61.3736 227.895C45.7948 223.538 31.8055 214.775 21.0867 202.659C10.3679 190.543 3.37557 175.59 0.949823 159.596C-1.47592 143.602 0.768139 127.248 7.41237 112.499C14.0566 97.7497 24.8183 85.2327 38.4045 76.4519ZM163.062 156.711L163.062 156.711C162.954 156.773 162.846 156.835 162.738 156.897C162.846 156.835 162.954 156.773 163.062 156.711Z" fill="#24C8DB"/>
+    </svg>
+    <span>FaceWinUnlock</span>
+  </a>
+  <div class="nav__right">
+    <a class="back" href="index.html">返回首页</a>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="切换到夜间模式" title="切换到夜间模式">
+      <svg class="theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="4.2"/>
+        <path d="M12 2.6v2.4M12 19v2.4M2.6 12h2.4M19 12h2.4M5.6 5.6l1.7 1.7M16.7 16.7l1.7 1.7M18.4 5.6l-1.7 1.7M7.3 16.7l-1.7 1.7"/>
+      </svg>
+      <svg class="theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M20.6 14.4A8.6 8.6 0 0 1 9.6 3.4a8.7 8.7 0 1 0 11 11z"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <p class="kicker">伍 · 记录</p>
+  <h1>历史版本<span class="dot">。</span></h1>
+  <div class="rule"></div>
+  <p class="lede">从 0.3.4 到当前版本，每次改动按时间倒序留档。</p>
+  <p class="credit">完整发布说明见 <a href="https://github.com/zs1083339604/FaceWinUnlock-Tauri/releases" target="_blank" rel="noopener noreferrer">GitHub Releases</a></p>
+
+  <section class="timeline">
+
+    <article class="ver">
+      <div class="ver__head">
+        <span class="ver__no">0.4.1</span>
+        <span class="ver__date">2026-11-14</span>
+        <span class="ver__badge">最新</span>
+        <span class="ver__tag">功能添加 · 性能优化 · 修复</span>
+      </div>
+      <ul class="ver__list">
+        <li><strong>修复占用异常：</strong>识别主循环空闲时没有休眠，空转占满单核，导致 dwn.exe / LogonUI.exe 高占用与风扇狂转；现改为空闲时休眠 100ms 等待触发。</li>
+        <li><strong>解锁提速：</strong>识别模型改为全局缓存（省去每次数百毫秒加载）、摄像头会话复用（省去每次重新打开 1–2 秒）、一帧完成全用户匹配，不再逐个用户串行扫描。</li>
+        <li>新增深色模式。</li>
+        <li>新增旋转摄像头功能。</li>
+        <li>移除锁屏界面的文字提示，改为动画 + 少量文字显示（等待触发 / 解锁成功 / 解锁失败）。</li>
+      </ul>
+      <div class="ver__foot">
+        <div class="contrib" aria-label="贡献者"></div>
+      </div>
+    </article>
+
+    <article class="ver">
+      <div class="ver__head">
+        <span class="ver__no">0.4.0</span>
+        <span class="ver__date">2026-10-01</span>
+        <span class="ver__tag">功能添加 · 系统增强 · 修复</span>
+      </div>
+      <ul class="ver__list">
+        <li>本次更新改动较大，建议先看 <a href="https://www.bilibili.com/video/BV1cCYw6tEmj/" target="_blank" rel="noopener noreferrer">B 站视频教程</a>。</li>
+        <li>新增密码加密存储。</li>
+        <li>大幅加快面容识别启动速度，与锁屏界面同步。</li>
+        <li>修复用户名或密码错误时给 LSA 多发一次凭据的问题（概率触发）。</li>
+        <li>修复面容识别较慢时导致 DLL 无法安全卸载的问题（概率触发）。</li>
+        <li>彻底修复开机面容触发器、管道错误、手动解锁后摄像头的一系列问题。</li>
+        <li>优化初始化第 2 步的进度条，大幅加快第 2、3 步速度。</li>
+        <li>移除开机面容识别开关、解锁服务开关与服务日志。</li>
+        <li><strong>更新前请先卸载旧版，更新后需重新初始化。</strong></li>
+      </ul>
+      <div class="ver__foot">
+        <div class="contrib" aria-label="贡献者"></div>
+      </div>
+    </article>
+
+    <article class="ver">
+      <div class="ver__head">
+        <span class="ver__no">0.3.7</span>
+        <span class="ver__date">2026-08-27</span>
+        <span class="ver__tag">功能添加 · 修复</span>
+      </div>
+      <ul class="ver__list">
+        <li>新增快捷键解锁方式。</li>
+        <li>添加多域账户支持。</li>
+        <li>左侧菜单新增其他首选项入口。</li>
+        <li>修复清除缓存时无法打开缓存目录的问题。</li>
+        <li>小幅优化首选项界面的内存占用。</li>
+        <li>本版本需要重新初始化。</li>
+      </ul>
+      <div class="ver__foot">
+        <div class="contrib" aria-label="贡献者"></div>
+      </div>
+    </article>
+
+    <article class="ver">
+      <div class="ver__head">
+        <span class="ver__no">0.3.6</span>
+        <span class="ver__date">2026-08-07</span>
+        <span class="ver__tag">系统增强 · 修复</span>
+      </div>
+      <ul class="ver__list">
+        <li>新增强制打开软件磁贴选项。</li>
+        <li>修复睡眠 / 休眠前、合盖时仍进行面容解锁的问题。</li>
+        <li>修复启用动态反馈时无法隐藏磁贴的问题。</li>
+        <li>修复两项可能导致死锁的隐患。</li>
+        <li>优化初始化时的锁屏界面提示与面容识别动态反馈。</li>
+        <li>调整系统托盘图标。</li>
+      </ul>
+      <div class="ver__foot">
+        <div class="contrib" aria-label="贡献者"></div>
+      </div>
+    </article>
+
+    <article class="ver">
+      <div class="ver__head">
+        <span class="ver__no">0.3.5</span>
+        <span class="ver__date">2026-04-10</span>
+        <span class="ver__tag">功能添加 · 优化</span>
+      </div>
+      <ul class="ver__list">
+        <li>新增面容解锁场景设置。</li>
+        <li>添加 Win11 应用层面容解锁支持。</li>
+        <li>延迟时间添加重试支持。</li>
+        <li>优化用户名或密码错误时的提示文案。</li>
+        <li>完善解锁过程的动态反馈。</li>
+        <li>解锁方式、重试时间移至 DLL 下。</li>
+        <li>修复密码错误后仍然尝试登录、延迟时间无限面容识别的问题。</li>
+        <li>本版本需要重新初始化。</li>
+      </ul>
+      <div class="ver__foot">
+        <div class="contrib" aria-label="贡献者"></div>
+      </div>
+    </article>
+
+    <article class="ver">
+      <div class="ver__head">
+        <span class="ver__no">0.3.4</span>
+        <span class="ver__date">2026-03-15</span>
+        <span class="ver__tag">系统增强 · 修复</span>
+      </div>
+      <ul class="ver__list">
+        <li>完成 NSIS 一键卸载脚本。</li>
+        <li>修复没有设置人脸时仍然调用摄像头解锁的问题。</li>
+        <li>修复 Win11 用户层调用 DLL 时没有日志记录的问题。</li>
+        <li>修复在应用层、UAC 层仍调用面容识别的问题。</li>
+        <li>缓解无限打印日志的问题（未从根源解决）。</li>
+        <li>优化初始化逻辑（初始化时可配置摄像头）、管道与面容代码复用、DLL 体积。</li>
+      </ul>
+      <div class="ver__foot">
+        <div class="contrib" aria-label="贡献者"></div>
+      </div>
+    </article>
+
+  </section>
+</main>
+
+<footer class="foot">抬头，即开<span class="dot">。</span> · FaceWinUnlock</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  var canvas = document.getElementById('ascii-bg');
+  var meta = document.getElementById('theme-color');
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var KEY = 'fwu-theme';
+
+  /* ---------- 主题：默认按时间，19:00–07:00 夜间 ---------- */
+  function autoTheme() {
+    var h = new Date().getHours();
+    return (h >= 19 || h < 7) ? 'dark' : 'light';
+  }
+  function manualTheme() {
+    try { return sessionStorage.getItem(KEY); } catch (e) { return null; }
+  }
+  function setTheme(mode) {
+    var dark = mode === 'dark';
+    root.setAttribute('data-theme', mode);
+    canvas.classList.toggle('is-on', dark);
+    if (meta) meta.setAttribute('content', dark ? '#050a15' : '#f3ede3');
+    if (btn) {
+      btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      btn.setAttribute('aria-label', dark ? '切换到日间模式' : '切换到夜间模式');
+      btn.title = dark ? '切换到日间模式' : '切换到夜间模式';
+    }
+    if (dark) start(); else stop();
+  }
+
+  /* ---------- ASCII 渐变背景（与首页同参） ---------- */
+  var COLORS = ['#1e3fd8', '#f6f8ff', '#a5d8ff', '#38bdf8'];
+  var CHARS = ' =+xX0S8#@';
+  var CELL = 18, DENSITY = 0.8, GLYPH = 0.85, FLICKER = 0.2;
+  var SOFT = 0.5, FLOW = 0.5, SPEED = 1, GRAIN = 0.08, SCRAMBLE = 0.1;
+  var ctx = canvas.getContext('2d');
+  var stops = COLORS.map(function (hex) {
+    var n = parseInt(hex.slice(1), 16);
+    return [n >> 16 & 255, n >> 8 & 255, n & 255];
+  });
+  var dpr = 1, w = 0, h = 0, cols = 0, rows = 0;
+  var running = false, rafId = 0, startedAt = 0, lastFrame = 0;
+  var pointer = { x: 0, y: 0, on: false };
+  var waves = [];
+
+  var grain = document.createElement('canvas');
+  grain.width = grain.height = 96;
+  (function () {
+    var g = grain.getContext('2d');
+    var img = g.createImageData(96, 96);
+    for (var p = 0; p < img.data.length; p += 4) {
+      var v = 150 + Math.random() * 105;
+      img.data[p] = img.data[p + 1] = img.data[p + 2] = v;
+      img.data[p + 3] = Math.random() * 80;
+    }
+    g.putImageData(img, 0, 0);
+  })();
+  var grainPattern = ctx.createPattern(grain, 'repeat');
+
+  function mix(t) {
+    t = Math.max(0, Math.min(1, t)) * (stops.length - 1);
+    var i = Math.min(stops.length - 2, Math.floor(t));
+    var f = t - i, a = stops[i], b = stops[i + 1];
+    return 'rgb(' + Math.round(a[0] + (b[0] - a[0]) * f) + ',' +
+      Math.round(a[1] + (b[1] - a[1]) * f) + ',' +
+      Math.round(a[2] + (b[2] - a[2]) * f) + ')';
+  }
+  function rnd(i, j, seed) {
+    var v = Math.sin(i * 127.1 + j * 311.7 + seed * 74.7) * 43758.5453;
+    return v - Math.floor(v);
+  }
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = canvas.clientWidth || window.innerWidth;
+    h = canvas.clientHeight || window.innerHeight;
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cols = Math.ceil(w / CELL) + 1;
+    rows = Math.ceil(h / CELL) + 1;
+  }
+
+  function draw(t, now) {
+    var intro = Math.min(1, t / 1.1);
+    var hz = 0.58 + Math.sin(t * 0.18 * SPEED) * 0.012;
+    var pointerR = SCRAMBLE * Math.min(w, h);
+
+    ctx.clearRect(0, 0, w, h);
+    ctx.font = '500 13px "SFMono-Regular", Menlo, Consolas, monospace';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    for (var k = 0; k < waves.length; k++) waves[k].r = (now - waves[k].born) * 0.85;
+
+    for (var j = 0; j < rows; j++) {
+      var v = (j * CELL + CELL / 2) / h;
+      var sy = j * CELL + CELL / 2;
+      for (var i = 0; i < cols; i++) {
+        if (rnd(i, j, 1) > DENSITY) continue;
+        var sx = i * CELL + CELL / 2;
+        var u = sx / w;
+        var d = v - hz;
+        var wave = Math.sin(u * 6.2 + t * (0.55 + FLOW) * SPEED + j * 0.22) * 0.5 + 0.5;
+        var bright = Math.exp(-(d * d) / (0.012 + SOFT * 0.05)) * (0.55 + wave * 0.45);
+        bright += Math.exp(-Math.pow(d - 0.36, 2) / 0.1) * 0.26;
+        bright += (rnd(i, j, 2) - 0.5) * FLICKER * 0.3;
+        bright = Math.max(0, Math.min(1, bright * intro));
+
+        if (pointer.on) {
+          var dx = sx - pointer.x, dy = sy - pointer.y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < pointerR) {
+            ctx.globalAlpha = GLYPH * (0.45 + (1 - dist / pointerR) * 0.55) * intro;
+            ctx.fillStyle = 'rgb(246,248,255)';
+            ctx.fillText(CHARS.charAt(Math.floor(rnd(i, j, Math.floor(t * 14) + 3) * CHARS.length)), sx, sy);
+            continue;
+          }
+        }
+        var hit = false;
+        for (var k2 = 0; k2 < waves.length; k2++) {
+          var wx = sx - waves[k2].x, wy = sy - waves[k2].y;
+          var wd = Math.sqrt(wx * wx + wy * wy);
+          if (Math.abs(wd - waves[k2].r) < 26) { hit = true; break; }
+        }
+        if (hit) {
+          ctx.globalAlpha = GLYPH * intro;
+          ctx.fillStyle = 'rgb(246,248,255)';
+          ctx.fillText(CHARS.charAt(Math.floor(rnd(i, j, Math.floor(t * 16)) * CHARS.length)), sx, sy);
+          continue;
+        }
+        var ch = CHARS.charAt(Math.round(bright * (CHARS.length - 1)));
+        if (ch === ' ') continue;
+        ctx.fillStyle = mix(0.18 + d * 0.75 + wave * 0.16);
+        ctx.globalAlpha = Math.min(1, GLYPH * (0.28 + bright * 0.72) * intro);
+        ctx.fillText(ch, sx, sy);
+      }
+    }
+
+    if (GRAIN > 0) {
+      ctx.save();
+      ctx.globalAlpha = GRAIN;
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.translate(-Math.floor(Math.random() * 96), -Math.floor(Math.random() * 96));
+      ctx.fillStyle = grainPattern;
+      ctx.fillRect(0, 0, w + 96, h + 96);
+      ctx.restore();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function frame(now) {
+    if (!running) return;
+    rafId = requestAnimationFrame(frame);
+    if (now - lastFrame < 32) return;
+    lastFrame = now;
+    for (var i = waves.length - 1; i >= 0; i--) {
+      if (now - waves[i].born > 2600) waves.splice(i, 1);
+    }
+    draw((now - startedAt) / 1000, now);
+  }
+  function start() {
+    resize();
+    startedAt = performance.now();
+    lastFrame = 0;
+    if (still) { draw(2.6, performance.now()); return; }
+    if (running) return;
+    running = true;
+    rafId = requestAnimationFrame(frame);
+  }
+  function stop() {
+    running = false;
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = 0;
+    waves.length = 0;
+    pointer.on = false;
+  }
+
+  setTheme(manualTheme() || autoTheme());
+
+  /* ---------- 贡献者头像组：点击散开 / 再点收回 ---------- */
+  (function () {
+    var PEOPLE = [
+      { login: 'zs1083339604' },
+      { login: 'devcme' },
+      { login: 'Ming-QWQ520' },
+      { login: 'tztztzy' },
+      { login: 'Xiao-yu233' },
+      { login: 'zhhnsghy' },
+      { login: 'skyernovie' },
+      { login: 'ZHCOOL520' }
+    ];
+    var MAX = 4;
+    var canHover = window.matchMedia('(hover: hover)').matches;
+
+    [].slice.call(document.querySelectorAll('.contrib')).forEach(function (group) {
+      PEOPLE.forEach(function (p, i) {
+        var a = document.createElement('a');
+        a.className = 'cav';
+        a.style.setProperty('--i', i);
+        a.href = 'https://github.com/' + p.login;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.title = '在 GitHub 打开 @' + p.login;
+        a.setAttribute('aria-label', p.login);
+        a.tabIndex = -1;
+
+        var img = document.createElement('img');
+        img.src = './assets/avatars/' + p.login + '.png';
+        img.alt = '';
+        img.loading = 'lazy';
+        img.width = 42;
+        img.height = 42;
+        a.appendChild(img);
+
+        var name = document.createElement('span');
+        name.className = 'cav__name';
+        name.textContent = p.login;
+        a.appendChild(name);
+
+        group.appendChild(a);
+      });
+
+      var more = document.createElement('span');
+      more.className = 'cav cav--more';
+      more.hidden = true;
+      var num = document.createElement('span');
+      num.textContent = '+0';
+      more.appendChild(num);
+      group.appendChild(more);
+
+      var list = [].slice.call(group.querySelectorAll('.cav[href]'));
+      var shown = list;
+      if (list.length > MAX) {
+        var rest = list.slice(MAX - 1);
+        rest.forEach(function (a) {
+          a.classList.add('cav--extra');
+          a.tabIndex = -1;
+        });
+        num.textContent = '+' + rest.length;
+        more.hidden = false;
+        shown = list.slice(0, MAX - 1);
+      }
+      more.style.setProperty('--i', shown.length);
+      group.style.setProperty('--n', list.length);
+
+      group.setAttribute('role', 'button');
+      group.setAttribute('aria-expanded', 'false');
+      group.setAttribute('aria-label', '贡献者：悬停展开，展开后点击头像进入主页');
+      group.tabIndex = 0;
+
+      var open = false;
+      function setOpen(v) {
+        if (open === v) return;
+        open = v;
+        group.classList.toggle('is-open', open);
+        group.setAttribute('aria-expanded', String(open));
+        shown.forEach(function (a) { a.tabIndex = open ? 0 : -1; });
+      }
+      group._close = function () { setOpen(false); };
+
+      if (canHover) {
+        group.addEventListener('pointerenter', function () { setOpen(true); });
+        group.addEventListener('pointerleave', function () { setOpen(false); });
+      } else {
+        group.addEventListener('click', function (e) {
+          if (open && e.target.closest('.cav[href]')) return;
+          e.preventDefault();
+          setOpen(!open);
+        });
+      }
+      group.addEventListener('focusin', function () { setOpen(true); });
+      group.addEventListener('focusout', function (e) {
+        if (!group.contains(e.relatedTarget)) setOpen(false);
+      });
+      group.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { setOpen(false); return; }
+        if (e.target !== group) return;
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+          e.preventDefault();
+          setOpen(!open);
+        }
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      [].slice.call(document.querySelectorAll('.contrib.is-open')).forEach(function (g) {
+        if (!g.contains(e.target)) g._close();
+      });
+    });
+  })();
+
+  /* ---------- 导航吸顶：滚动后加底色与细线 ---------- */
+  var nav = document.querySelector('.nav');
+  if (nav) {
+    var onScroll = function () {
+      nav.classList.toggle('is-stuck', window.scrollY > 8);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  if (btn) {
+    btn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+      try { sessionStorage.setItem(KEY, next); } catch (e) {}
+    });
+  }
+  setInterval(function () {
+    if (manualTheme()) return;
+    var mode = autoTheme();
+    if (mode !== root.getAttribute('data-theme')) setTheme(mode);
+  }, 60000);
+
+  window.addEventListener('resize', function () {
+    if (root.getAttribute('data-theme') !== 'dark') return;
+    resize();
+    if (still) draw(2.6, performance.now());
+  });
+  window.addEventListener('pointermove', function (e) {
+    if (!running) return;
+    pointer.x = e.clientX;
+    pointer.y = e.clientY;
+    pointer.on = true;
+  }, { passive: true });
+  window.addEventListener('pointerdown', function (e) {
+    if (!running) return;
+    waves.push({ x: e.clientX, y: e.clientY, born: performance.now(), r: 0 });
+  }, { passive: true });
+  window.addEventListener('blur', function () { pointer.on = false; });
+  document.addEventListener('visibilitychange', function () {
+    if (root.getAttribute('data-theme') !== 'dark' || still) return;
+    if (document.hidden) {
+      running = false;
+      if (rafId) cancelAnimationFrame(rafId);
+    } else {
+      startedAt = performance.now();
+      running = true;
+      rafId = requestAnimationFrame(frame);
+    }
+  });
+})();
+</script>
+</body>
+</html>
